@@ -20,17 +20,19 @@ app.get('/', (req, res) => {
         <link rel="stylesheet" href="styles.css">
       </head>
       <body>
-        <section>
-          <h2>My Tasks</h2>
-          <h3>${userGoal}</h3>
-        </section>
-        <form action="/store-task" method="POST">
+          <section>
+            <h2>My Tasks</h2>
+          </section>
+          <form action="/store-task" method="POST">
           <div class="form-control">
-            <label>Today Task</label>
-            <input type="text" name="task">
+          <label>Today Task</label>
+          <input type="text" name="task">
           </div>
           <button>Set Today Task</button>
-        </form>
+          </form>
+          <section>
+            <h3>${userTask}</h3>
+          </section>
       </body>
     </html>
   `);
@@ -38,9 +40,8 @@ app.get('/', (req, res) => {
 
 app.post('/store-task', (req, res) => {
   const enteredTask = req.body.task;
-  console.log(enteredGoal);
-  userTask = enteredGoal;
+  userTask = enteredTask;
   res.redirect('/');
 });
 
-app.listen(80);
+app.listen(24);
